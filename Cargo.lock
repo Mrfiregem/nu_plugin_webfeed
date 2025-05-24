@@ -1340,14 +1340,14 @@ dependencies = [
 
 [[package]]
 name = "nu_plugin_webfeed"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "feed-rs",
  "nu-json",
  "nu-plugin",
  "nu-protocol",
  "reqwest",
- "serde-transcode",
+ "shellexpand",
 ]
 
 [[package]]
@@ -1937,15 +1937,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "serde-transcode"
-version = "1.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "590c0e25c2a5bb6e85bf5c1bce768ceb86b316e7a01bdf07d2cb4ec2271990e2"
-dependencies = [
- "serde",
-]
-
-[[package]]
 name = "serde_derive"
 version = "1.0.219"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1978,6 +1969,15 @@ dependencies = [
  "itoa",
  "ryu",
  "serde",
+]
+
+[[package]]
+name = "shellexpand"
+version = "3.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8b1fdf65dd6331831494dd616b30351c38e96e45921a27745cf98490458b90bb"
+dependencies = [
+ "dirs",
 ]
 
 [[package]]

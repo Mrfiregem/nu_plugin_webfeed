@@ -4,6 +4,7 @@ use nu_protocol::{
     IntoPipelineData, LabeledError, PipelineData, Signature, Span, Spanned, SyntaxShape, Type,
     Value, category_from_string,
 };
+use shellexpand::tilde;
 
 use crate::util::get_resource_content;
 
@@ -40,8 +41,8 @@ impl PluginCommand for FeedFetch {
     ) -> Result<PipelineData, LabeledError> {
         let resource = call.req::<Spanned<String>>(0)?;
 
-        let raw_feed =
-            get_resource_content(&resource.item).map_err(|e| LabeledError::new(format!("{e}")))?;
+        let raw_feed = get_resource_content(&tilde(&resource.item))
+            .map_err(|e| LabeledError::new(format!("{e}")))?;
 
         let feed = match feed_rs::parser::parse(raw_feed.as_bytes()) {
             Ok(f) => f,
