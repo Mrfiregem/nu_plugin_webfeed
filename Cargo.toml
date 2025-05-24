@@ -1,0 +1,12 @@
+[package]
+name = "nu_plugin_webfeed"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+feed-rs = "2.3.1"
+nu-json = "0.104.1"
+nu-plugin = "0.104.1"
+nu-protocol = "0.104.1"
+reqwest = { version = "0.12.15", features = ["blocking"] }
+serde-transcode = "1.1.1"
